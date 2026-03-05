@@ -33,45 +33,9 @@ window.addEventListener('scroll', () => {
 });
 
 // ===================================
-// Scroll Animations
+// Scroll Animations (Removido)
 // ===================================
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    observer.observe(section);
-});
-
-// Observe feature cards
-document.querySelectorAll('.feature-card').forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    observer.observe(card);
-});
-
-// Observe product cards
-document.querySelectorAll('.product-card').forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`;
-    observer.observe(card);
-});
+// As animações de rolagem foram removidas para que o conteúdo carregue imediatamente.
 
 // ===================================
 // Contact Form Handling
@@ -88,7 +52,7 @@ contactForm.addEventListener('submit', (e) => {
     // Create WhatsApp message
     // eslint-disable-next-line
     const whatsappMessage = `Olá! Meu nome é ${name}.%0A%0AEmail: ${email}%0A%0AMensagem: ${message}`;
-    const whatsappNumber = '558499710385'; // Substitua pelo número real
+    const whatsappNumber = '5583996897219'; // Substitua pelo número real
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
     // Open WhatsApp
@@ -110,7 +74,7 @@ function abrirWhatsApp(button) {
         if (productCard) {
             const productName = productCard.querySelector('h3').textContent.trim();
             const whatsappMessage = encodeURIComponent(`Olá! Tenho interesse no produto *${productName}*.\n\nPoderia me dar mais informações?`);
-            const whatsappNumber = '558499710385';
+            const whatsappNumber = '5583996897219';
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
             window.open(whatsappURL, '_blank');
